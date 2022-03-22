@@ -761,6 +761,7 @@ img {
     display: inline-block;
     text-transform: capitalize;
     color: #d7a500;
+    font-size: 16px;
 }
 
 .about-mailtoleft-box {}
@@ -1084,8 +1085,8 @@ img {
     width: 510px;
     background-position: center;
     border: none;
-    box-shadow: 0 6px 30px rgb(0 0 0 / 30%);
-    -webkit-box-shadow: 0 6px 30px rgb(0 0 0 / 30%);
+    box-shadow: 0 6px 30px rgb(0 0 0 / 10%);
+    -webkit-box-shadow: 0 6px 30px rgb(0 0 0 / 10%);
     border-radius: 8px;
     background-image: url('../public/images/dots-circle-half.png');
     background-repeat: no-repeat;
@@ -1261,13 +1262,70 @@ img {
     background-position-x: -168px
 }
 
-
-
-
-
-
-
-
+.breadcrumb_area.large-pgbn{
+    min-height: 535px;
+}
+.breadcrumb_area.large-pgbn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.90) 100%);
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.10) 0%,rgba(0,0,0,0.90) 100%);
+    background: -o-linear-gradient(to bottom,  rgba(0,0,0,0.10) 0%,rgba(0,0,0,0.90) 100%);
+    background: -ms-linear-gradient(to bottom,  rgba(0,0,0,0.10) 0%,rgba(0,0,0,0.90) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.10) 0%,rgba(0,0,0,0.90) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+    
+}
+.breadcrumb_area.large-pgbn .container {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+}
+.shape-bottom.bigbanner-wgb {
+    position: absolute;
+    bottom: -2px;
+    height: 100px;
+    width: 100%;
+    left: 0;
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    z-index: 1;
+}
+.shape-bottom.bigbanner-wgb svg {
+    height: 80px;
+    width: 100%;
+}
+.cheapflight-lar .blog-inner-box2 p strong {
+    font-size: 23px;
+    margin: 0;
+    text-transform: capitalize;
+    font-weight: 700;
+    display: block;
+    margin-top: 20px; 
+    margin-bottom: 6px;
+    text-align: left;
+}
+.cheapflight-lar .popular-destination.blogaddalist {
+    background-color: #fff; 
+}
+.enginebanner_sctn.full-w.smallbannercheap .minh.align-items-center.row {
+    min-height: 460px;
+}
+.cheapflight-lar .blogaddalist-inner,
+.cheapflight-lar .popular-destination.blogaddalist.details .blogaddalist-round {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+ 
 
 /* responsive */
 
@@ -1279,6 +1337,7 @@ img {
         font-size: 18px
     }
 }
+ 
 
 @media (min-width:992px) {
     .navbar-expand-lg .navbar-collapse {}
@@ -1286,7 +1345,9 @@ img {
     .breadcrumb_area {
         padding: 90px 0px;
     }
-
+    .about-font-18 .sub-title{
+        font-size: 18px;
+    }
     .about-font-18 p {
         margin-bottom: 20px
     }
@@ -1457,10 +1518,13 @@ img {
     .footer-area .inner_container_1.container .col-12 {
         margin-bottom: 40px;
     }
+    .breadcrumb_area.large-pgbn {
+        min-height: 500px;
+    }
 }
 
 @media (max-width:991px) {
-
+    .shape-bottom.bigbanner-wgb svg,
     .enginebanner_sctn .banner-shape-14.w-100 {
         height: 60px;
     }
@@ -1504,7 +1568,9 @@ img {
     .popular-destination.blogaddalist.details .blog-inner-box2 h3 {
         font-size: 140%;
     }
-
+    .breadcrumb_area.large-pgbn {
+        min-height: 450px;
+    }
 }
 
 @media (max-width:767px) {
@@ -1517,6 +1583,11 @@ img {
     }
     .headerusd-dropdown .dropdown-menu::after{
         right: 48px;
+    }
+    .enginebanner_sctn.full-w.smallbannercheap .minh.align-items-center.row {
+        min-height: auto;
+        padding-top: 90px;
+        padding-bottom: 60px;
     }
 }
 
@@ -1545,11 +1616,13 @@ img {
     .new_header_area .navbar-brand img {
         width: 170px;
     }
-
+    .breadcrumb_area.large-pgbn {
+        min-height: 400px;
+    }
     .new_header_area_empty {
         min-height: 63.19px
     }
-
+    .shape-bottom.bigbanner-wgb svg,
     .popular-destination.travellist .ppt-clistaff.mt-shapeneed svg,
     .enginebanner_sctn .banner-shape-14.w-100 {
         height: 40px;
@@ -1627,7 +1700,9 @@ img {
     width: 300px;
     max-height: 72vh;
     overflow-y: auto;
+    margin-top: 10px;
     }
+   
 }
 
 @media (max-width:425px) {
@@ -1643,13 +1718,15 @@ img {
     .new_header_area_empty {
         min-height: 60.34px
     }
+
+    .shape-bottom.bigbanner-wgb svg,
     .popular-destination.travellist .ppt-clistaff.mt-shapeneed svg,
     .enginebanner_sctn .banner-shape-14.w-100 {
         height: 30px;
     }
 
     .breadcrumb_area h3 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .top-title.text-center h2 {
@@ -1670,5 +1747,8 @@ img {
 
     .blogaddalist-round .h4.title {
         font-size: 1.3rem;
+    }
+    .cheapflight-lar .blog-inner-box2 p strong{
+        font-size: 20px;
     }
 }

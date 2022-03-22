@@ -16,13 +16,13 @@ export default function ChangeCountryMenu() {
         <h5>Select Language</h5>
         <Row>
             <Col xs="6" md="4">
-            <Dropdown.Item onClick={(e)=>{setLang('EN')}}  className='btn btn-site shadiow-sm ripple-effbtn btn-40 btn-block text-center'><span>English</span></Dropdown.Item>
+            <Dropdown.Item onClick={(e)=>{setLang('EN')}}  className='btn btn-site ripple-effbtn btn-40 btn-block text-center'><span>English</span></Dropdown.Item>
             </Col>
             <Col xs="6" md="4">
-            <Dropdown.Item onClick={(e)=>{setLang('AR')}}  className='btn btn-site shadiow-sm ripple-effbtn btn-40 btn-block text-center'><span>Arabic</span></Dropdown.Item>
+            <Dropdown.Item onClick={(e)=>{setLang('AR')}}  className='btn btn-site ripple-effbtn btn-40 btn-block text-center'><span>Arabic</span></Dropdown.Item>
             </Col>
             <Col xs="6" md="4">
-            <Dropdown.Item onClick={(e)=>{setLang('ES')}}  className='btn btn-site shadiow-sm ripple-effbtn btn-40 btn-block text-center'><span>Spanish</span></Dropdown.Item>
+            <Dropdown.Item onClick={(e)=>{setLang('ES')}}  className='btn btn-site ripple-effbtn btn-40 btn-block text-center'><span>Spanish</span></Dropdown.Item>
             </Col>
         </Row>
     </div>
@@ -35,38 +35,38 @@ export default function ChangeCountryMenu() {
 
     <Row className='selcur-rew'>
             <Col xs="6" md="3">
-            <Dropdown.Item onClick={(e)=>{setCurr('USD')}}  className='btn btn-site shadiow-sm whitebt ripple-effbtn btn-40 btn-block text-center'><span>
+            <Dropdown.Item onClick={(e)=>{setCurr('USD')}}  className='btn btn-site whitebt ripple-effbtn btn-40 btn-block text-center'><span>
                 <b className='USD flg'></b>
                 USD</span></Dropdown.Item>
             </Col>
             <Col xs="6" md="3">
-            <Dropdown.Item onClick={(e)=>{setCurr('INR')}}  className='btn btn-site shadiow-sm whitebt ripple-effbtn btn-40 btn-block text-center'><span>
+            <Dropdown.Item onClick={(e)=>{setCurr('INR')}}  className='btn btn-site whitebt ripple-effbtn btn-40 btn-block text-center'><span>
                 <b className='INR flg'></b>
                 INR</span></Dropdown.Item>
             </Col>
             <Col xs="6" md="3">
-            <Dropdown.Item onClick={(e)=>{setCurr('AUD')}}  className='btn btn-site shadiow-sm whitebt ripple-effbtn btn-40 btn-block text-center'><span>
+            <Dropdown.Item onClick={(e)=>{setCurr('AUD')}}  className='btn btn-site whitebt ripple-effbtn btn-40 btn-block text-center'><span>
                 <b className='AUD flg'></b>
                 AUD</span></Dropdown.Item>
             </Col>
             <Col xs="6" md="3">
-            <Dropdown.Item onClick={(e)=>{setCurr('GBP')}}  className='btn btn-site shadiow-sm whitebt ripple-effbtn btn-40 btn-block text-center'><span>
+            <Dropdown.Item onClick={(e)=>{setCurr('GBP')}}  className='btn btn-site whitebt ripple-effbtn btn-40 btn-block text-center'><span>
                 <b className='GBP flg'></b>
                 GBP</span></Dropdown.Item>
             </Col>
 
             <Col xs="6" md="3">
-            <Dropdown.Item onClick={(e)=>{setCurr('AED')}}  className='btn btn-site shadiow-sm whitebt ripple-effbtn btn-40 btn-block text-center'><span>
+            <Dropdown.Item onClick={(e)=>{setCurr('AED')}}  className='btn btn-site whitebt ripple-effbtn btn-40 btn-block text-center'><span>
                 <b className='AED flg'></b>
                 AED</span></Dropdown.Item>
             </Col>
             <Col xs="6" md="3">
-            <Dropdown.Item onClick={(e)=>{setCurr('EUR')}}  className='btn btn-site shadiow-sm whitebt ripple-effbtn btn-40 btn-block text-center'><span>
+            <Dropdown.Item onClick={(e)=>{setCurr('EUR')}}  className='btn btn-site whitebt ripple-effbtn btn-40 btn-block text-center'><span>
                 <b className='EUR flg'></b>
                 EUR</span></Dropdown.Item>
             </Col>
             <Col xs="6" md="3">
-            <Dropdown.Item onClick={(e)=>{setCurr('CA')}}  className='btn btn-site shadiow-sm whitebt ripple-effbtn btn-40 btn-block text-center'><span>
+            <Dropdown.Item onClick={(e)=>{setCurr('CA')}}  className='btn btn-site whitebt ripple-effbtn btn-40 btn-block text-center'><span>
                 <b className='CA flg'></b>
                 CA</span></Dropdown.Item>
             </Col>
