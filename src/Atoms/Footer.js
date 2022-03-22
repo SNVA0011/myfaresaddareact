@@ -172,7 +172,7 @@ export default function Footer() {
 
                         <Col xs={12} md={6} lg={3}>
                             <div className="subscribe">
-                                <h3 className='use-head'>Subscribe</h3>
+                                <h3 className='use-head'>Subsccribe</h3>
                                 <form className="subscribe-form" id="myForm">
                                     <InputGroup>
                                         <FormControl type="email" className="subscribe" placeholder="Your Email Address" />
