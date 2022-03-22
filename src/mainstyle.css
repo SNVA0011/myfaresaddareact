@@ -1313,10 +1313,13 @@ img {
     text-align: left;
 }
 .cheapflight-lar .popular-destination.blogaddalist {
-    background-color: #fff; 
+    background-color: #f6f9fe; 
 }
 .enginebanner_sctn.full-w.smallbannercheap .minh.align-items-center.row {
     min-height: 460px;
+}
+.cheapflight-lar .enginebanner_sctn .banner-shape-14.w-100 {
+    display: none;
 }
 .cheapflight-lar .blogaddalist-inner,
 .cheapflight-lar .popular-destination.blogaddalist.details .blogaddalist-round {
