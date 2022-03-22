@@ -292,8 +292,9 @@ img {
 }
 
 .form-control:focus {
-    border-color: #313041;
+    border-color: #f4bc03;
 }
+
 
 .ripple-effbtn {
     position: relative;
