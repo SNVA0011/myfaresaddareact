@@ -1087,6 +1087,10 @@ img {
     box-shadow: 0 6px 30px rgb(0 0 0 / 30%);
     -webkit-box-shadow: 0 6px 30px rgb(0 0 0 / 30%);
     border-radius: 8px;
+    background-image: url('../public/images/dots-circle-half.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
 }
 
 .headerusd-dropdown .dropdown-menu::after {
@@ -1181,7 +1185,7 @@ img {
 }
 
 .btn.btn-site.whitebt {
-    background: #f8f9fa;
+    background: #ffffff
 }
 
 .headerusd-dropdown .dropdown-menu .btn.btn-site {
@@ -1214,7 +1218,8 @@ img {
 }
 
 .selcur-rew.row .btn.btn-site.whitebt {
-    color: #607d8b
+    color: #607d8b;
+    box-shadow: 0 7px 15px 0 rgb(0 0 0 / 11%);
 }
 
 .selcur-rew.row .btn.btn-site.whitebt:hover {
@@ -1225,7 +1230,7 @@ img {
     box-shadow: 0 0 0 0.2rem rgb(163 163 163 / 10%);
 }
 .selcur-rew.row .btn.btn-site.whitebt.ripple-effbtn::after {
-    background: #e3e3e3;
+    background: rgb(243 187 2 / 15%)
 }
 
 .selcur-rew.row .USD.flg {
