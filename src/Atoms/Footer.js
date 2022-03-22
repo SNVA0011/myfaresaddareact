@@ -192,7 +192,7 @@ export default function Footer() {
                         <Row>
                             <Col xs={12} className='text-center'>
                                 <p className="footer_logos">
-                                    <img alt="logos" src="images/card-logos.png" width="780" />
+                                    <img alt="logos" src="images/card-logos-footer.png" width="780" />
                                 </p>
                                 <p className="footer_disclaimer">
                                     © 2019 myfaresadda.com, having its registered office in the state of USA

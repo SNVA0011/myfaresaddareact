@@ -533,9 +533,10 @@ img {
 
 .footer-area {
     background: #303030;
-    background-image: url('../public/images/bg-map-2.png');
+    background-image: url('../public/images/wavedrk-pur-footer.png');
     background-position: top right;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .footer-area .inner_container_1.container {
@@ -1175,7 +1176,8 @@ img {
     }
 
     .footer-area {
-        background-position: bottom right;
+        background-size: auto;
+        background-repeat: repeat;
     }
     .breadcrumb_area{
     background-size: 260%;
