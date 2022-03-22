@@ -14,7 +14,7 @@ export default function Footer() {
             <footer className="footer-area full-w">
                 <Container className='inner_container_1'>
                     <Row>
-                        <Col xs={12} md={6} lg={3}>
+                        <Col xs={12} md={6} xl={3}>
                             <>
                                 <h5 className="use-head">Useful Links</h5>
                                 <ul className="use-li">
@@ -54,7 +54,7 @@ export default function Footer() {
                             </>
 
                         </Col>
-                        <Col xs={12} md={6} lg={3}>
+                        <Col xs={12} md={6} xl={3}>
                             <h5 className="use-head">About Us</h5>
                             <ul className="use-li">
                                 <li>
@@ -84,7 +84,7 @@ export default function Footer() {
                             </ul>
 
                         </Col>
-                        <Col xs={12} md={6} lg={3}>
+                        <Col xs={12} md={6} xl={3}>
                             <h5 className="use-head">Connect With Us</h5>
                             <ul className="use-li address">
                                 <li>
@@ -170,7 +170,7 @@ export default function Footer() {
 
                         </Col>
 
-                        <Col xs={12} md={6} lg={3}>
+                        <Col xs={12} md={6} xl={3}>
                             <div className="subscribe">
                                 <h3 className='use-head'>Subsccribe</h3>
                                 <form className="subscribe-form" id="myForm">
