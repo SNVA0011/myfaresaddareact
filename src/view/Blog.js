@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet } from "react-helmet";
 import BreadHero from '../Atoms/BreadHero';
 import Container from 'react-bootstrap/Container'
@@ -6,14 +6,70 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Link } from "react-router-dom";
 import ScrollAnimation from 'react-animate-on-scroll';
-
+import blogdata from "../SampleData/Blog.json"
+import axios from 'axios';
+import loading from "../Atoms/Image/load.gif"
 
 export default function Blog() {
+  const [data,setData]=useState([])
+  const [load,setLoad]=useState(false)
+
+
+  
+function Getdata(){
+  var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "id": "",
+  "title": "",
+  "titleUrl": "",
+  "content": "",
+  "description": "",
+  "keywords": "",
+  "posttime": "",
+  "status": "",
+  "heading": "",
+  "img_url": "",
+  "siteId": "139",
+  "categoryName": "",
+  "blogdes2": "",
+  "blogTagsName2": "",
+  "extarTag": "",
+  "tfnHeader": "",
+  "tfnFooter1": "",
+  "tfnFooter2": "",
+  "tfnFooter3": "",
+  "tfnPopup": ""
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://cms.travomint.com/travoles-content/showblogdata?authcode=Trav3103s987876", requestOptions)
+  .then(response => response.json())
+  .then(result => {
+    setData(result.response)
+    setLoad(true)
+  })
+  .catch(error => console.log('error', error));
+}
   useEffect(() => {
     window.scrollTo(0, 0)
+    Getdata()
   }, [])
+  
+  console.log(data)
   return (
-    <div className='blogadda'>
+   <div>
+  
+     {load?<div>
+      <div className='blogadda'>
+    
       <Helmet>
         <title>	Blog - Myfaresadda</title>
         <meta name="description" content="Get Latest information about Airlines, holiday packages, flight tickets booking deals and the airlines latest policies through our blog." />
@@ -33,554 +89,34 @@ export default function Blog() {
 
           <Row>
 
+{data.map((items,i)=>(
 
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
+ 
+<Col xs={12} md={6}>
               <ScrollAnimation duration={1.2} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
                 <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
                   <img src='images/business_travel.jpg' alt='business_travel'></img>
                   <div className='wrapper'>
-                    <span>March 14, 2018</span>
+                    <span>{(new Date(items.posttime)).getDate()+"/"+((new Date(items.posttime)).getMonth()+1)+"/"+(new Date(items.posttime)).getFullYear()}</span>
                   </div>
                 </Link>
                 <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
+                  <Link to={`/blog/${items.titleUrl}`} className='h4 title'>{items.title}</Link>
+                  <p>{items.description}</p>
 
                   <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
+                  <Link to={`/blog/${items.titleUrl}`} className='btn btn-site ripple-effbtn btn-40'>
                     <span>Read More</span>
                   </Link>
                 </div>
               </ScrollAnimation>
             </Col>
-            {/* end Col xs={12} md={6} */}
-
-
+ 
+))}
             {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.5} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
+            
             {/* end Col xs={12} md={6} */}
 
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.6} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.3} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.1} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.7} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.2} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.5} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.6} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.3} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.1} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.7} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.2} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.5} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.6} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.3} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.1} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.7} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.2} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.5} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.6} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.3} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.1} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
-
-
-            {/* Col xs={12} md={6} */}
-            <Col xs={12} md={6}>
-              <ScrollAnimation duration={1.7} animateOnce={true} animateIn='fadeInUp' animateOut='fadeOutDownBig' className='blogaddalist-round'>
-                <Link to="/blog/does-delta-airlines-have-a-live-chat" className='image_area_partition'>
-                  <img src='images/business_travel.jpg' alt='business_travel'></img>
-                  <div className='wrapper'>
-                    <span>March 14, 2018</span>
-                  </div>
-                </Link>
-                <div className='blogaddalist-inner'>
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='h4 title'>Does Delta Airlines have a live chat option?</Link>
-                  <p>Does Delta Airlines have a live chat? Yes, Delta does have live chat options; whether you have to raise any query or need general assistance, you can contact Delta via chat anytime. Using the chat option, you can resolve your queries instantly. If...</p>
-
-                  <hr className="mx-row-hr" />
-                  <Link to='/blog/does-delta-airlines-have-a-live-chat' className='btn btn-site ripple-effbtn btn-40'>
-                    <span>Read More</span>
-                  </Link>
-                </div>
-              </ScrollAnimation>
-            </Col>
-            {/* end Col xs={12} md={6} */}
 
 
 
@@ -588,5 +124,9 @@ export default function Blog() {
         </Container>
       </div>
     </div>
+     </div>:<div className='loading'>
+          <img src={loading} width="50%" height="100px"/> Blog loading...
+       </div>}
+   </div>
   )
 }

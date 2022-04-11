@@ -23,32 +23,8 @@ export default function Footer() {
                                             <span>Blog</span></Link>
                                     </li>
                                     <li>
-                                        <Link to="/cheap-flights" className='ripple-effbtn d-inline-block'>
-                                            <span>Cheap Flights</span></Link>
-                                    </li>
-                                    <li>
                                         <Link to="/flights" className='ripple-effbtn d-inline-block'>
                                             <span>Flights</span></Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/customize-travel" className='ripple-effbtn d-inline-block'>
-                                            <span>Customize Trip</span></Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/top-travel-agency" className='ripple-effbtn d-inline-block'>
-                                            <span>Travel Agency</span></Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/news" className='ripple-effbtn d-inline-block'>
-                                            <span>News</span></Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/article" className='ripple-effbtn d-inline-block'>
-                                            <span>Articles</span></Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/rent-a-car" className='ripple-effbtn d-inline-block'>
-                                            <span>Cars</span></Link>
                                     </li>
                                 </ul>
                             </>
@@ -68,10 +44,6 @@ export default function Footer() {
                                 <li>
                                     <Link to="/privacy" className='ripple-effbtn d-inline-block'>
                                         <span>Privacy Policy</span></Link>
-                                </li>
-                                <li>
-                                    <Link to="/refunds" className='ripple-effbtn d-inline-block'>
-                                        <span>Cancellation &amp; Refunds</span></Link>
                                 </li>
                                 <li>
                                     <Link to="/terms" className='ripple-effbtn d-inline-block'>
