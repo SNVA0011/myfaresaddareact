@@ -10,8 +10,9 @@ export default function Subheader() {
                 <Row className='flex-grow-1 align-items-center'>
                     <Col xs={12} xl={6}>
                         <ul className='callmail'>
-                            <li className='d-inline-block mr-4'><a href="tel:+1-888-870-5528" target='_blank' rel="noreferrer"><i className="mr-1 bi bi-telephone-fill"></i> +1-888-870-5528</a></li>
+                            {/* <li className='d-inline-block mr-4'><a href="tel:+1-888-870-5528" target='_blank' rel="noreferrer"><i className="mr-1 bi bi-telephone-fill"></i> +1-888-870-5528</a></li>
                             <li className='d-inline-block'><a href="mailto:support@myfaresadda.com" target='_blank' rel="noreferrer"><i className="mr-1 bi bi-envelope-fill"></i> support@myfaresadda.com</a></li>
+                         */}
                         </ul>
                     </Col>
                     <Col xs={12} xl={6}>

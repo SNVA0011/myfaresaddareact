@@ -124,8 +124,8 @@ fetch("http://cms.travomint.com/travoles-content/showblogdata?authcode=Trav3103s
         </Container>
       </div>
     </div>
-     </div>:<div>
-          <img src={loading} width="50%" height="100px"/>
+     </div>:<div className='loading'>
+          <img src={loading} width="50%" height="100px"/> Blog loading...
        </div>}
    </div>
   )

@@ -19,9 +19,6 @@ export default function ChangeCountryMenu() {
             <Dropdown.Item onClick={(e)=>{setLang('EN')}}  className='btn btn-site ripple-effbtn btn-40 btn-block text-center'><span>English</span></Dropdown.Item>
             </Col>
             <Col xs="6" md="4">
-            <Dropdown.Item onClick={(e)=>{setLang('AR')}}  className='btn btn-site ripple-effbtn btn-40 btn-block text-center'><span>Arabic</span></Dropdown.Item>
-            </Col>
-            <Col xs="6" md="4">
             <Dropdown.Item onClick={(e)=>{setLang('ES')}}  className='btn btn-site ripple-effbtn btn-40 btn-block text-center'><span>Spanish</span></Dropdown.Item>
             </Col>
         </Row>
@@ -30,10 +27,10 @@ export default function ChangeCountryMenu() {
 
     <Dropdown.Divider className='my-3'/>
     <div className='curr-block'>
-    <h5>Select Currency</h5>
+    {/* <h5>Select Currency</h5> */}
  
 
-    <Row className='selcur-rew'>
+    {/* <Row className='selcur-rew'>
             <Col xs="6" md="3">
             <Dropdown.Item onClick={(e)=>{setCurr('USD')}}  className='btn btn-site whitebt ripple-effbtn btn-40 btn-block text-center'><span>
                 <b className='USD flg'></b>
@@ -70,7 +67,7 @@ export default function ChangeCountryMenu() {
                 <b className='CA flg'></b>
                 CA</span></Dropdown.Item>
             </Col>
-        </Row> 
+        </Row>  */}
     </div>
 </DropdownButton>
   )

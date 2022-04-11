@@ -36,7 +36,7 @@ export default function Flights(pageValue, pageType) {
 	"contentTitle":"",
 	"contentData":"",
 	"contentImage":"",
-	"siteId":"48",
+	"siteId":"139",
 	"status":"",
 	"count":"",
 	"url":"",
@@ -132,8 +132,8 @@ export default function Flights(pageValue, pageType) {
           </Container>
         </div>
       </div>
-       </div>:<div>
-            <img src={loading} width="50%" height="100px"/>
+       </div>:<div className='loading'>
+            <img src={loading} width="50%" height="100px"/>loading...
          </div>}
      </div>
     )

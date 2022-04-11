@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import BreadHero from '../Atoms/BreadHero';
 import Container from 'react-bootstrap/Container';
 import { Link, useParams } from "react-router-dom";
-import blogdata from "../SampleData/Blog.json"
 import { useSelector } from 'react-redux';
 
 export default function Airline() {
@@ -33,7 +32,7 @@ function Getdata(){
     "contentTitle": "",
     "contentData": "",
     "contentImage": "",
-    "siteId": "48",
+    "siteId": "139",
     "status": "",
     "count": "",
     "url": pageTypeAndValue.PageTyeAndValue[0].url,
