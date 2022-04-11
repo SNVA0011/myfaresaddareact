@@ -9,6 +9,9 @@ import Blog from './view/Blog';
 import BlogDetails from './view/BlogDetails';
 import CustomizeTravelPage from './view/CustomizeTravelPage';
 import CheapFlights from './view/CheapFlights';
+import Flights from './view/Flights';
+import Airline from './view/Airline';
+
  
 function App(props) {
 
@@ -24,6 +27,8 @@ function App(props) {
             <Route exact path="/blog/:blogid" element={<BlogDetails/>} />
             <Route exact path="/customize/:customizeid" element={<CustomizeTravelPage/>} />
             <Route exact path="/cheap-flights/:cheapflightsid" element={<CheapFlights/>} />
+            <Route exact path="/flights" element={<Flights />} />
+            <Route exact path="/flights/:url" element={<Airline  />} />
             <Route path="*" element={<Pageerror/>} />
           </Routes>
           <Footer/>

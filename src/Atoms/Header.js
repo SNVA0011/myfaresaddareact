@@ -18,9 +18,9 @@ export default function Header() {
                 <div className='clearfix'></div>
 
                 <Container className='navtop_2'>
-                    <NavLink to="/" activeclassname="active" className='navbar-brand' onClick={() => window.innerWidth < 1200 ? setExpanded(false) : ''}>
+                    {/* <NavLink to="/" activeclassname="active" className='navbar-brand' onClick={() => window.innerWidth < 1200 ? setExpanded(false) : ''}>
                         <img src='/images/logo.png' alt='Flowers' width={211}></img>
-                    </NavLink>
+                    </NavLink> */}
 
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" className='ml-2 order-3' onClick={() => window.innerWidth < 1200 ? setExpanded(expanded ? false : "expanded") : ''} />
@@ -37,7 +37,6 @@ export default function Header() {
                             <NavLink to="/" onClick={() => window.innerWidth < 1200 ? setExpanded(expanded ? false : "expanded") : ''} activeclassname="active" className='border-first'>Home</NavLink>
                             <NavLink to="/about-us" onClick={() => window.innerWidth < 1200 ? setExpanded(expanded ? false : "expanded") : ''} activeclassname="active">About Us</NavLink>
                             <NavLink to="/flights" onClick={() => window.innerWidth < 1200 ? setExpanded(expanded ? false : "expanded") : ''} activeclassname="active">Flights</NavLink>
-                            <NavLink to="/cheap-flights" onClick={() => window.innerWidth < 1200 ? setExpanded(expanded ? false : "expanded") : ''} activeclassname="active">Cheap Flights</NavLink>
                             <NavLink to="/blog" onClick={() => window.innerWidth < 1200 ? setExpanded(expanded ? false : "expanded") : ''} activeclassname="active">Blog</NavLink>
                             <div className='d-xl-none' onClick={() => window.innerWidth < 1200 ? setExpanded(expanded ? false : "expanded") : ''}>
                                 <Subheader />
